@@ -1,0 +1,19 @@
+schemaVersion: 2.2.0
+metadata:
+  name: my-project
+projects:
+  - name: my-project
+    source:
+      location: .
+      type: local
+components:
+  - name: dev-container
+    container:
+      image: ubuntu:22.04
+      memoryLimit: 32Gi  # <-- không cần ghi nếu không chắc, để tự động
+      mountSources: true
+      sourceMapping: /workspace
+      command: ["/bin/bash"]
+      env:
+        - name: DEBIAN_FRONTEND
+          value: noninteractive
